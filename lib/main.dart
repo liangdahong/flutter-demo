@@ -5,6 +5,8 @@ void main() {
   runApp(MyApp());
 }
 
+// container 组件
+// Text 组件
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -23,21 +25,28 @@ class MyApp extends StatelessWidget {
 }
 
 class HomeContent extends StatelessWidget {
-  List list = List();
-
-  HomeContent() {
-    this.list = dataList;
+  @override
+  Widget build(BuildContext context) {
+    return IconContainer(Icons.home);
+        // return IconContainer(Icons.home, size: 40, color: Colors.white);
   }
+}
+
+class IconContainer extends StatelessWidget {
+  double size = 30.0;
+  Color color = Colors.white;
+  IconData icon;
+  IconContainer(this.icon, {this.color, this.size});
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-        itemCount: this.list.length,
-        itemBuilder: (context, idx) {
-          return ListTile(
-            title: Text(this.list[idx]["title"]),
-            subtitle: Text(this.list[idx]["summary"]),
-          );
-        });
+    return Container(
+      width: 100,
+      height: 100,
+      color: Colors.blue,
+      child: Center(
+        child: Icon(this.icon, size: this.size, color: this.color),
+      ),
+    );
   }
 }
