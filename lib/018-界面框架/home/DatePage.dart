@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class DatePage extends StatefulWidget {
   @override
   _DatePageState createState() => _DatePageState();
